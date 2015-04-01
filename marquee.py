@@ -65,40 +65,24 @@ class Msg(object):
 
         # allLines should be a list of 7, each item containing all the x lines of each letter
         self.allLines = []
-        i  = 0
+        i = 0
         x = 5
         y = 9
 
         while i < 7:
-            line = []
+            line = '' 
             for value in range(self.msg_length):
                 item = self.char_set[value].get_char_line(x, y)
-                line.append(item+'-')
+                line += '-' + item 
             self.allLines.append(line)
             i += 1
             x += 9
             y += 9
-
-    def print_msg(self):
-        #for i in range(self.msg_length):
-        #    # This refs a Char object
-        #    self.char_set[i].disp_char()
         
-        for i in range(len(self.allLines)):
-            print 'len of msg_length\n'
-            print self.msg_length
-            value = 0
-            while value < self.msg_length:
-                print_statement = self.allLines[i][%d]' % value
-            print self.allLines[i][0]+self.allLines[i][1]+self.allLines[i][2]
+    def print_msg(self):
+        for i in range(7):
+            print self.allLines[i] + '-'
 
-
-print 'Printing msg\n'
 msg1 = Msg('a', 'b', 'c')
 msg1.print_msg()
-
-char1 = Char('a')
-char2 = Char('b')
-char3 = Char('c')
-print 'char is ', type(char1)
-#char1.disp_char()
+msg2 = Msg('abc')
