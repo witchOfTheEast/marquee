@@ -26,14 +26,14 @@ lex = {'a': ("""
     0---
     -000
     ----"""),
-    '1': ("""
-    1111
-    2222
-    3333
-    4444
-    5555
-    6666
-    7777
+    ' ': ("""
+    ----
+    ----
+    ----
+    ----
+    ----
+    ----
+    ----
     """)
     }
 
@@ -58,10 +58,12 @@ class Char(object):
 class Msg(object):
     def __init__(self, *args):
         self.char_set = []
-        self.msg_length = len(args)
+        self.msg_length = 0
         for i in range(len(args)):
-            temp = Char(args[i])
-            self.char_set.append(temp)
+            for j in range(len(args[i])):
+                temp = Char(args[i][j])
+                self.char_set.append(temp)
+                self.msg_length += 1
 
         # allLines should be a list of 7, each item containing all the x lines of each letter
         self.allLines = []
@@ -86,3 +88,6 @@ class Msg(object):
 msg1 = Msg('a', 'b', 'c')
 msg1.print_msg()
 msg2 = Msg('abc')
+msg2.print_msg()
+msg3 = Msg('ab c')
+msg3.print_msg()
