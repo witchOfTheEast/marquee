@@ -3,6 +3,9 @@
 # Create vertical scrolling marquee (cli)
 from data.lexicon import codex
 from data.lexicon import lex 
+from getInput import get_input
+
+user_input = get_input("\nEnter your message: ")
 
 class Char(object):
     def __init__(self, char):
@@ -70,6 +73,6 @@ class Msg(object):
             print self.allLines[i]
             i += 1
 
-msg3 = Msg('hello')
+msg3 = Msg(user_input)
 msg3.make_msg_by_codex()
 msg3.print_msg()
