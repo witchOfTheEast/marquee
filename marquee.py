@@ -30,7 +30,7 @@ class Msg(object):
         self.msg_length = 0
         for i in range(len(args)):
             for j in range(len(args[i])):
-                temp = Char(args[i][j])
+                temp = Char(args[i][j].lower())
                 self.char_set.append(temp)
                 self.msg_length += 1
         #make_msg() 
@@ -41,6 +41,8 @@ class Msg(object):
                 line = ''
                 for value in range(self.msg_length):
                     letter = self.char_set[value].char
+                    if letter not in lex:
+                        letter = '?'
                     codex_index = lex[letter][i]
                     line_item = codex[codex_index]
                     line += '-' + line_item
